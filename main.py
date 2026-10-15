@@ -5,7 +5,11 @@
 # /// 
 
 import random, copy, sys, pygame, asyncio
-from pygame.locals import *
+QUIT = pygame.QUIT
+MOUSEBUTTONUP = pygame.MOUSEBUTTONUP
+MOUSEMOTION = pygame.MOUSEMOTION
+KEYUP = pygame.KEYUP
+K_ESCAPE = pygame.K_ESCAPE
 
 BOARDWIDTH = 7  # how many spaces wide the board is
 BOARDHEIGHT = 6 # how many spaces tall the board is
@@ -36,9 +40,7 @@ COMPUTER = 'computer'
 
 class FourInARowGame:
     def __init__(self):
-        pygame.mixer.pre_init(44100, -16, 2, 1024)
-    pygame.init()
-    pygame.mixer.set_num_channels(64)
+        pygame.init()
         self.fps_clock = pygame.time.Clock()
 
         self.is_android = hasattr(sys, "getandroidapilevel")
